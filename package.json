@@ -1,0 +1,30 @@
+{
+  "name": "indecision-app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "serve": "live-server public/",
+    "build": "webpack",
+    "dev-server": "webpack-dev-server"
+  },
+  "author": "Aman Nigam",
+  "license": "ISC",
+  "dependencies": {
+    "babel-core": "6.26.3",
+    "babel-loader": "7.1.1",
+    "babel-plugin-transform-class-properties": "6.24.1",
+    "babel-preset-env": "1.5.2",
+    "babel-preset-react": "6.24.1",
+    "live-server": "^1.2.1",
+    "react": "16.8.6",
+    "react-dom": "16.8.6",
+    "react-modal": "2.2.2",
+    "validator": "11.1.0",
+    "webpack": "^4.38.0",
+    "webpack-dev-server": "^3.7.2"
+  },
+  "devDependencies": {
+    "webpack-cli": "^3.3.6"
+  }
+}
