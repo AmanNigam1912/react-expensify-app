@@ -1,0 +1,45 @@
+//button partial
+// .big-button are called selectors
+.big-button {
+    background: $purple;
+    border: none;
+    //width, type of border, color of border using darken(colr, % we want to darken by)
+    border-bottom: .6rem solid darken($purple, 10%);
+    color: white;
+    font-weight: bold;
+    font-size: $l-size;
+    margin-bottom: $m-size;
+    padding: 2.4rem;
+    width: 100%;
+}
+
+//:disabled are built in pseudo class disabled
+.big-button:disabled {
+    opacity: .5;
+}
+
+//Button
+.button {
+    background: $purple;
+    border: none;
+    border-bottom: .3rem solid darken($purple, 10%);
+    color: white;
+    font-weight: 500;
+    padding: $s-size;    
+}
+
+//bem 
+//use m of bem i.e modifier, convention is to separe words with two hyphens --
+//modifier is the same button element whom we are changing
+.button--link {
+    background: none;
+    border: none;
+    color: $off-white;
+    padding: 0;
+}
+
+@media (min-width: $desktop-breakpoint) {
+    .big-button {
+        margin-bottom: $xl-size;
+    }
+}

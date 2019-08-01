@@ -1,3 +1,7 @@
+// app.js used only to import code defined elsewhere
+// allows to have many small files as compared to big one
+// same architecture used for styles.scss
+
 // import validator from 'validator';
 
 // console.log(validator.isEmail('test@gmail.com'));
@@ -7,6 +11,10 @@ import ReactDOM from 'react-dom';
 //import AddOption from './components/AddOption.js';
 //webpack will take it as a js file
 import IndecisionApp from './components/IndecisionApp';
+//grab css from normalize css directory
+//normalize used to allow all the browsers to have the same stuff with the styles included
+import 'normalize.css/normalize.css';
+import './styles/styles.scss';
 
 //told webpack to run babel everytime it sees a js code
 //webpack loads this file, runs it through babel and converting the jsx to react.createElement calls

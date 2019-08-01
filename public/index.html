@@ -2,7 +2,15 @@
 <html>
     <head>
         <meta charset="UTF-8">
+        <!-- with mobile devices, when the desktop appl is opened it is zoomed out as the 
+            appl is not optimized to work for mobile devices. It needs to be zoomed in to see the content properly
+        <meta name="viewport" content="key=value, otherkey=othervalue">
+        device-width will overwrite the 980 px on ios devices and 800ish for android
+        so when we set this up we tell viewport to actually use real devices width-->
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Indecision App</title>
+        <!--to setup favicon that we see on the tab-->
+        <link rel="icon" type="image/png" href="/images/favicon.png"/>
     </head>
     <body>
         <!--div tag will be used by react dom to render it here-->

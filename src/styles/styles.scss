@@ -1,0 +1,24 @@
+/*  will be our entry point for styles
+    import selectors and styles defined elsewhere 
+    break our app styles into multiple files
+    support import by default
+    all these imports are called partials
+*/
+
+// $brand-color: blue;
+
+// * {
+//     color: $brand-color;
+// }
+
+//name of file without _ and extension
+//settings to be 1st as it uses variable naem that are used elsewhere
+@import './base/settings';
+@import './base/base';
+@import './components/add-option';
+@import './components/button';
+@import './components/container';
+@import './components/header';
+@import './components/modal';
+@import './components/widget';
+@import './components/option';

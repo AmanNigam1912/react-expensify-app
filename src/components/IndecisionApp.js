@@ -116,18 +116,23 @@ export default class IndecisionApp extends React.Component {
                 {/* when we create instance of react component we can pass data into it, looks like HTML attribute but it's just key value pairs */}
                 {/* key has to be string value could be anything like string, number, array, or any other type  */}
                 <Header subtitle={subtitle}/>
-                <Action 
-                    hasOptions={this.state.options.length > 0}  
-                    handlePick={this.handlePick}              
-                />
-                <Options 
-                    options={this.state.options}
-                    handleDeleteOptions={this.handleDeleteOptions}
-                    handleDeleteOption={this.handleDeleteOption}
-                />
-                <AddOption 
-                    handleAddOption={this.handleAddOption}
-                />
+                {/* Action Options and AddOption need to be centered so we use _container.scss */}
+                <div className="container">
+                    <Action 
+                        hasOptions={this.state.options.length > 0}  
+                        handlePick={this.handlePick}              
+                    />
+                    <div className="widget">
+                        <Options 
+                            options={this.state.options}
+                            handleDeleteOptions={this.handleDeleteOptions}
+                            handleDeleteOption={this.handleDeleteOption}
+                        />
+                        <AddOption 
+                            handleAddOption={this.handleAddOption}
+                        />
+                    </div> 
+                </div>                 
                 <OptionModal 
                     selectedOption={this.state.selectedOption}
                     handleSelectedOption={this.handleSelectedOption}

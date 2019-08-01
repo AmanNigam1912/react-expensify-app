@@ -1,0 +1,42 @@
+//targeting only the div tag inside the modal
+//name ReactModalPortal is seen in elements tab in developer tools
+.ReactModalPortal > div {
+    opacity: 0;
+}
+
+//Tell css which property we want to transition and the time frame we want to transition
+.ReactModalPortal .ReactModal__Overlay {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    //property, time frame, function to use for transition
+    transition: opacity 200ms ease-in-out;
+}
+
+.ReactModalPortal .ReactModal__Overlay--after-open {
+    opacity: 1;
+}
+
+.ReactModalPortal .ReactModal__Overlay--before-close {
+    opacity: 1;
+}
+
+.modal {
+    background: $light-blue;
+    color: white;
+    max-width: 30rem;
+    outline: none;
+    padding: $l-size;
+    text-align: center;
+}
+
+.modal__title {
+    margin: 0 0 $m-size 0;
+}
+
+.modal__body {
+    font-size: 2rem;
+    font-weight: 300;
+    margin: 0 0 $l-size 0;
+    word-break: break-all;
+}

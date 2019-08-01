@@ -1,0 +1,37 @@
+.header {
+    background: $off-black;
+    color: white;
+    //space b/w header and things below it
+    // 48 px
+    margin-bottom: $m-size;     
+    //1.6rem space above and below and 0 on the left and right
+    padding: $m-size 0; 
+    
+    //to avoid complex code inside we take h1 outside
+    // h1 {
+    //     //red color to any h1 inside the header
+    //     color: red;
+    // }
+}
+
+//targeting title inside header
+//known as BEM or Block element modifier
+//block are core building blocks like header
+//elements are things that go inside of that block to make them useful like title
+.header__title {
+    font-size: $l-size;
+    margin: 0;
+}
+
+.header__subtitle {
+    color: $off-white;
+    font-size: $m-size; //16 px
+    font-weight: 500; //thickness of font
+    margin: 0;
+}
+
+@media (min-width: $desktop-breakpoint) {
+    .header {
+        margin-bottom: $xl-size;
+    }
+}

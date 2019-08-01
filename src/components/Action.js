@@ -6,6 +6,7 @@ const Action = (props) => (
         <div>
             {/* this.props.handlePick will call the handlePick from this child whose prop handlePick is defined in parent */}
             <button 
+            className="big-button"
                 onClick={props.handlePick}
                 disabled={!props.hasOptions}
             >

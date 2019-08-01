@@ -23,6 +23,15 @@ module.exports = {
             //check via regex whether the file ends with .js
             test: /\.js$/,
             exclude: /node_modules/
+        }, {
+            //to make s optional and be used by normalize css 
+            test: /\.s?css$/,
+            //use provide to use array of loaders
+            use: [
+                'style-loader',
+                'css-loader',
+                'sass-loader'
+            ]
         }]
     },
     //source map makes debugging easier

@@ -1,0 +1,31 @@
+//widget
+.widget {
+    background: $light-blue;
+    margin-bottom: $xl-size;
+}
+
+.widget__message {
+    border-bottom: 1px solid lighten($light-blue, 10%);
+    color: $off-white;
+    margin: 0;
+    padding: $l-size;
+    text-align: center;
+}
+
+// Widget header
+.widget-header {
+    background: $blue;
+    color: $off-white;
+    //flexbox creates layouts, space distributed evenly
+    display: flex;
+    //another flex box property
+    justify-content: space-between;
+    //justify-content: space-around;
+    padding: $m-size;
+}
+
+.widget-header__title {
+    margin: 0;
+}
+//setup an element selector for widget-header
+//set margin
