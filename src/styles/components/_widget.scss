@@ -16,16 +16,11 @@
 .widget-header {
     background: $blue;
     color: $off-white;
-    //flexbox creates layouts, space distributed evenly
     display: flex;
-    //another flex box property
     justify-content: space-between;
-    //justify-content: space-around;
     padding: $m-size;
 }
 
 .widget-header__title {
     margin: 0;
 }
-//setup an element selector for widget-header
-//set margin

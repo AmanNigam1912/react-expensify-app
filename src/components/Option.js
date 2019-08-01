@@ -16,12 +16,3 @@ const Option = (props) => (
 
 
 export default Option;
-// class Option extends React.Component {
-//     render() {
-//         return (
-//             <div>
-//                 {this.props.optionText}    
-//             </div>
-//         );
-//     }
-// }

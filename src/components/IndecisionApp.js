@@ -8,17 +8,9 @@ import OptionModal from './OptionModal';
 export default class IndecisionApp extends React.Component {
     state = {
         options: [],
-        //for modal
         selectedOption: undefined
     }
     handleDeleteOptions = () => {
-        // this.setState(() => {
-        //     return {
-        //         options: []
-        //     }
-        // });
-
-        //new syntax for arrow fn but put in ({}) rather than in {}
         this.setState(() => ({
             options: []
         }));
@@ -41,17 +33,9 @@ export default class IndecisionApp extends React.Component {
         if(!option) {
             return 'Enter valid value to add item';
         } 
-        //indexOf returns the index of item, 0 if 1st item, 1 if 2nd item and -1 if it doesn't exist at all
         else if (this.state.options.indexOf(option) > -1) {
             return 'This option already exists';
         }
-        // this.setState((prevState) => {
-        //     return {
-        //         //options: prevState.options.concat([option])
-        //         //with or without [] works the same way
-        //         options: prevState.options.concat(option)
-        //     }
-        // });
 
         this.setState((prevState) => ({
             options: prevState.options.concat(option)
@@ -63,20 +47,6 @@ export default class IndecisionApp extends React.Component {
             selectedOption: undefined
         }));
     };
-    //props are the properties we give to a tag like title, subtitle, hasOptions, options, etc.
-    // constructor(props) {
-    //     super(props);
-    //     this.handleDeleteOptions = this.handleDeleteOptions.bind(this);
-    //     this.handlePick = this.handlePick.bind(this);
-    //     this.handleAddOption = this.handleAddOption.bind(this);
-    //     this.handleDeleteOption = this.handleDeleteOption.bind(this);
-    //     // this.state = {
-    //     //     options: []
-    //     // };
-    // }
-
-    //Lifecycle method only applicable in class based component not in stateless functional component
-    //fired when component gets mounted to the DOM
     componentDidMount() {
         try {
             const json = localStorage.getItem('options');
@@ -84,7 +54,6 @@ export default class IndecisionApp extends React.Component {
             const options = JSON.parse(json);
 
             if (options) {
-                //this will show the data to the screen even after refresh as it has been stored in localStorage
                 this.setState(() => ({ options }))
             }
         } catch (e) {
@@ -93,17 +62,13 @@ export default class IndecisionApp extends React.Component {
         
     }
 
-    //fired after component is updated like state value change or props value change
     componentDidUpdate(prevProps, prevState) {
         if (prevState.options.length !== this.state.options.length) {
-            //stringify takes an object and convert it into a string
             const json = JSON.stringify(this.state.options);
             localStorage.setItem('options', json);
         }
     }
 
-    //fired before component go away
-    //barely used
     componentWillUnmount() {
         console.log('component will unmont');
     }
@@ -113,10 +78,7 @@ export default class IndecisionApp extends React.Component {
         const subtitle = 'Put your life in the hands of a computer';
         return (
             <div>
-                {/* when we create instance of react component we can pass data into it, looks like HTML attribute but it's just key value pairs */}
-                {/* key has to be string value could be anything like string, number, array, or any other type  */}
                 <Header subtitle={subtitle}/>
-                {/* Action Options and AddOption need to be centered so we use _container.scss */}
                 <div className="container">
                     <Action 
                         hasOptions={this.state.options.length > 0}  

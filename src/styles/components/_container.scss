@@ -1,11 +1,5 @@
-//center the stuff inside header
-// also the stuff below header
 .container {
     max-width: 60rem;
-    //0 spaace top and bottom
-    //left and right to auto ex. browser is 70rem wide 
-    //distribute extra 10rem evenly on left and right, so 5rem either side
     margin: 0 auto;
-    //padding if we manually shorten the width of the browser and things should not look out of order
     padding: 0 $m-size;
 }

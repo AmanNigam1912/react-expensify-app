@@ -2,7 +2,6 @@
 .add-option-error {
     color: $off-white;
     font-style: italic;
-    //top, right=0, bottom=0, left=0
     margin: $m-size 0 0 0;
     padding: 0 $m-size;
 }
@@ -10,8 +9,6 @@
 //Add Option
 .add-option {
     display: flex;
-    //to stack things vertically for mobile devices use column
-    //the add option button is in next line and input box over it
     flex-direction: column;
     padding: $m-size;
 }
@@ -21,29 +18,14 @@
     border: none;
     color: $off-white;
     border-bottom: .3rem solid darken($dark-blue, 10%);
-    //make input grow based on available space, 
-    //if browser size increasses or decreases manage itself accordingly
-    //=1 will make input take up all of the space
     flex-grow: 1;
     margin: 0 0 $s-size 0;
-    //margin-right: $s-size;
     padding: $s-size;
 }
-
-//make changes when the same app is used on a mobile devices
-//for this we use media queries: a css feature not a sass feature
-//min-width: 45rem so up untill 45rem apply these styles
-//so this will show up for devices greater than this width
-//color red will appear for desktop devices like laptop and computer and not for mobile devices
-//where it will be usual color
 @media (min-width: $desktop-breakpoint) {
     .add-option {
         flex-direction: row;
     }
-
-    // * {
-    //     color: red;
-    // }
 
     .add-option__input {
         margin: 0 $s-size 0 0;
