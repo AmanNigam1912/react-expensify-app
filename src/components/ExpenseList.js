@@ -8,16 +8,30 @@ import selectExpenses from '../selectors/expenses';
 //this doesn't need to care about store.subscribe() and store.getState()
 //taken care by connect of react-redux
 const ExpenseList = (props) => (
-    <div>
-        <h1>Expense List</h1>
+    <div className="content-container">
+        <div className="list-header">
+            {/* Expenses will be shown on mobile devices 
+            while expense and amount will be shown on desktop devices */}        
+            <div className="show-for-mobile">Expenses</div> 
+            <div className="show-for-desktop">Expense</div>
+            <div className="show-for-desktop">Amount</div>
+        </div>
         {/* map use array of something and gives us array of something else 
         we are inserting an array of objects and returning an array of instances of array list item */}
+        <div className="list-body">
         {
-            props.expenses.map((expense) => {
-                //the spread operator will be passed as argument to the ExpenseListItem func call where it is destructured
-                return <ExpenseListItem key={expense.id} {...expense}/>
-            }) 
+            props.expenses.length === 0 ? (
+                <div className="list-item list-item--message">
+                    <span>No expenses</span>
+                </div>
+            ) : (
+                props.expenses.map((expense) => {
+                    //the spread operator will be passed as argument to the ExpenseListItem func call where it is destructured
+                    return <ExpenseListItem key={expense.id} {...expense}/>
+                }) 
+            )
         }
+        </div>
     </div>
 );
 

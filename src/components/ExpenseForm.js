@@ -92,21 +92,22 @@ export default class ExpenseForm extends React.Component {
     };
     render() {
         return (
-            <div>
-                {this.state.error && <p>{this.state.error}</p>}
-                <form onSubmit={this.onSubmit}>
+                <form className="form" onSubmit={this.onSubmit}>
+                    {this.state.error && <p className="form__error">{this.state.error}</p>}
                     <input 
                         type="text"
                         //placeholder is used to show sth in input when nothing is typed as yet
                         placeholder="Description"
                         //when we visit that page, automatically puts the focus on the input
                         autoFocus
+                        className="text-input"
                         value={this.state.description} //only read's input
                         onChange={this.onDescriptionChange} //will check for any changes done
                     />
                     <input 
                         type="text"
                         placeholder="Amount"
+                        className="text-input"
                         //can autoFocus only on one input at a time
                         value={this.state.amount}
                         onChange={this.onAmountChange}
@@ -127,13 +128,15 @@ export default class ExpenseForm extends React.Component {
                     {/* <textarea> tag defines a multi-line text input control. */}
                     <textarea
                         placeholder="Add a note for your expense (optional)"
+                        className="textarea"
                         value={this.state.note}
                         onChange={this.onNoteChange}
                     >
                     </textarea>
-                    <button>Add Expense</button>
+                    <div>
+                        <button className="button">Save Expense</button>    
+                    </div>
                 </form>
-            </div>
         )
     }
 }

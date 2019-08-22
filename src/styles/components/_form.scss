@@ -1,0 +1,14 @@
+.form {
+    display: flex;
+    flex-direction: column;
+    //direct descended is done with >
+    //for everything inside the form use *
+    > * {
+        margin-bottom: $m-size;
+    }
+}
+
+.form__error {
+    margin: 0 0 $m-size 0;
+    font-style: italic;
+}
