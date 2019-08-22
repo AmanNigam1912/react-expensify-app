@@ -1,13 +1,9 @@
-//cobineReducders help to combine multiple reducers to create a single store
 import { createStore, combineReducers } from 'redux';
 import uuid from 'uuid';
 
-
-//Action functions
 //ADD_EXPENSE
 const addExpense = (
     { 
-        //default values
         description = '', 
         note = '', 
         amount = 0, 
@@ -70,23 +66,12 @@ const expensesReducerDefaultState = []
 const expensesReducer = (state = expensesReducerDefaultState, action) => {
     switch (action.type) {
         case 'ADD_EXPENSE':
-            //push will change the action but we want to read from them
-            //not to be used here
-            //state.push(action.expense);
-            //array's concat method doesn't change the length of the array
-            //but adds the element to the array
-            //return state.concat(action.expense);
-
-            //use spread operator
             return [
                 ...state,
                 action.expense
             ];
         case 'REMOVE_EXPENSE':
-            //filter doesn't change the array it returns a new array with changes done
             return state.filter(({ id }) => {
-                //if true the item will be kept
-                //if false item will be filtered or removed
                 return id !== action.id;
             });
         case 'EDIT_EXPENSE':
@@ -94,7 +79,6 @@ const expensesReducer = (state = expensesReducerDefaultState, action) => {
                 if (expense.id === action.id) {
                     return {
                         ...expense,
-                        //next line will override the properties of expense with those mentioned in updates
                         ...action.updates
                     }
                 } else {
@@ -145,13 +129,6 @@ const filtersReducer = (state = filtersReducerDefaultState, action) => {
     }
 };
 
-//timestamps (in milliseconds)
-//timestamp 0 = January 1st 1970 (unix epoch)...+ve numbers are going to come afterwards and -ve number before
-//33400 is 33.4 seconds after January 1st 1970
-//10 is 10 milliseconds after January 1st 1970
-//-203 will be a date very late in 1969
-
-//Get visible expenses
 const getVisibleExpenses = (expenses, { text, sortBy, startDate, endDate }) => {
     return expenses.filter((expense) => {
         const startDateMatch = typeof startDate !== 'number' || expense.createdAt >= startDate;
@@ -161,8 +138,6 @@ const getVisibleExpenses = (expenses, { text, sortBy, startDate, endDate }) => {
         return startDateMatch && endDateMatch && textMatch;
     }).sort((a, b) => {
         if(sortBy === 'date') {
-            // 1 means b will come first in the list and a next
-            //so will be with -1, a will come first
             return a.createdAt < b.createdAt ? 1 : -1;
         } else if(sortBy === 'amount') {
             return a.amount < b.amount ? 1 : -1;
@@ -184,49 +159,23 @@ store.subscribe(() => {
     console.log(visibleExpenses);
 });
 
-//dispatch an action
 const expenseOne = store.dispatch(addExpense({ description: 'Rent', amount: 100, createdAt: -21000 }));
 const expenseTwo = store.dispatch(addExpense({ description: 'Coffee', amount: 300, createdAt: -1000 }));
 
-// store.dispatch(removeExpense({ id: expenseOne.expense.id }));
-// store.dispatch(editExpense(expenseTwo.expense.id, { amount: 500 }));
-
-//store.dispatch(setTextFilter('e'));
-// store.dispatch(setTextFilter());
-
 store.dispatch(sortByAmount());
-// store.dispatch(sortByDate());
-
-//store.dispatch(setStartDate(0));
-// store.dispatch(setStartDate());
-//store.dispatch(setEndDate(999));
 
 const demoState = {
     expenses: [{
         id: 'oigvhjbkncjkghh',
         description: 'January Rent',
         note: 'This was the final payment for that address',
-        amount: 48000, //in cents
+        amount: 48000, 
         createdAt: 0
     }],
     filters: {
         text: 'rent',
-        sortBy: 'amount', //date or amount
+        sortBy: 'amount', 
         startDate: undefined,
         endDate: undefined
     }
 };
-
-
-//example of object spread operator
-// const user = {
-//     name: 'Jen',
-//     age: 24
-// };
-
-// //inside of object spread out object
-// console.log({
-//     ...user,
-//     location: 'Boston',
-//     age: 27
-// });

@@ -5,7 +5,6 @@
 }
 
 .show-for-desktop {
-    //subtracted .01rem to ensure that both are not taking effect at the same time
     @media (max-width: $desktop-breakpoint - .01rem) {
         display: none;
     }

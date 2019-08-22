@@ -7,7 +7,6 @@
 }
 
 .select {
-    //scss syntax for scss to inherit properties from .text-input and add new ones
     @extend .text-input;
 }
 

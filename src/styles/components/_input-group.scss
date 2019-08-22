@@ -1,12 +1,8 @@
 .input-group {
-    //for smaller screens
     display: flex;
-    //default is row
-    //now it will be shown top to bottom
     flex-direction: column; 
     margin-bottom: $m-size;
 
-    //for larger screen like desktops
     @media (min-width: $desktop-breakpoint) {
         flex-direction: row;
         margin-bottom: $l-size;
@@ -14,11 +10,10 @@
 }
 
 .input-group__item {
-    //for smaller screens like mobile
     margin-bottom: $s-size;
 
     @media (min-width: $desktop-breakpoint) {
-        margin-right: $s-size; //for spacing to the right of each element
+        margin-right: $s-size; 
         margin: 0 $s-size 0 0;
     }
 

@@ -1,10 +1,8 @@
 import moment from 'moment';
 
-//Filters Reducer
 const filtersReducerDefaultState = {
     text: '',
     sortBy: 'date',
-    //to see only expenses of the current month
     startDate: moment().startOf('month'),
     endDate: moment().endOf('month')
 };

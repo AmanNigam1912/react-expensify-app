@@ -1,11 +1,10 @@
 .list-header {
     background: $off-white;
-    //darken offwhite by 7%
     border: 1px solid darken($off-white, 7%);
     color: $grey;
-    display: flex; //to dispaly expense on the left and amount on the right
+    display: flex; 
     justify-content: space-between;
-    padding: $s-size $m-size; //s-size for top and bottom, m-size for left and right
+    padding: $s-size $m-size; 
 }
 
 .list-body {
@@ -23,9 +22,7 @@
     flex-direction: column;
     padding: $s-size;
     text-decoration: none;
-    //css property we want to transition, amount of time we want the transition to take like 10sec,.3sec, alse the function 
-    transition: background .3s ease; //ease function: animation starts accelerates and declerates as it ends
-    //& take everything from parent selector and use hover over them
+    transition: background .3s ease; 
     &:hover {
         background: $off-white;
     }
